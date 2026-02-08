@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<p>Author: <%= @post.user.email %></p>
+<p>
+    <%= @post.user.created_at %>
+</p>
+
+<%= link_to "Back to posts", posts_path %>
+
+<% if user_signed_in? %>
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Delete", @post, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this post?" } %>
+
+<% end %>
