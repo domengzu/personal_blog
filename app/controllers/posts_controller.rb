@@ -16,8 +16,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: "Blog post saved successfully."
+      # flash.now[:notice] = "Blog post saved successfully."
+      # redirect_to @post
+      redirect_to @post, notice: "Blog post saved successfully.", status: :see_other
     else
+      # flash.now[:alert] = "There was an error saving the blog post."
       render :new, status: :unprocessable_entity
     end
   end
@@ -29,26 +32,29 @@ class PostsController < ApplicationController
   def update
     authorize_owner!
     if @post.update(post_params)
-      redirect_to @post, notice: "Blog post updated successfuly."
+      redirect_to @post, notice: "Blog post updated successfully.", status: :see_other
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
   def destroy
     authorize_owner!
     @post.destroy
-    redirect_to posts_path, notice: "Blog deleted"
+    redirect_to posts_path, notice: "Post was successfully deleted.", status: :see_other
   end
 
   private
 
   def set_post
     @post = Post.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to posts_path, alert: "Post not found."
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    # params.expect(post: [ :title, :body ]) # this is a more concise way to write the strong parameters, but it is not yet widely supported in all versions of Rails
+    params.require(:post).permit(:title, :body, :user_id) # currently the best practice
   end
 
   def authorize_owner!

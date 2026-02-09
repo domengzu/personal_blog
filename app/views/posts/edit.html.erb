@@ -1,2 +1,4 @@
-<h1>Edit post</h1>
-<%= render "form", post: @post %>
+<div class="blog-form">
+    <h1>Edit post <strong>ID: <%= @post.id %></strong></h1>
+    <%= render "form", post: @post %>
+</div>

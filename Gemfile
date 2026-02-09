@@ -66,3 +66,7 @@ group :test do
 end
 
 gem "devise", "~> 5.0"
+
+gem "rails_db", "~> 2.5"
+
+gem "letter_opener", "~> 1.10"

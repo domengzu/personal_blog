@@ -1,0 +1,18 @@
+<article class="post">
+    <div class="post-header">
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <span class="post-date"><%= post.created_at.strftime("%B %d, %Y") %></span>
+    </div>
+
+    <div class="post-content">
+        <p><%= truncate(post.body, length: 300) %></p>
+    </div>
+
+    <div class="post-footer">
+        <%= link_to "Read more", post_path(post), class: "btn btn-primary" %>
+        <% if user_signed_in? && current_user == post.user %>
+        <%= link_to "Edit", edit_post_path(post), class: "btn btn-secondary" %>
+        <%= link_to "Delete", post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <% end %>
+    </div>
+</article>

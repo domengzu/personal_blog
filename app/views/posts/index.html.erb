@@ -1,13 +1,15 @@
-<h1>Blog Posts</h1>
-<% if user_signed_in? %>
-<%= link_to "New post", new_post_path %>
-<% end %>
-
-<ul>
-    <% @posts.each do |post| %>
-    <p>
-        <%=link_to post.title, post %><br>
-        author: <%= post.user.email %>
-    </p>
+<div class="blog-header">
+    <h1>BLOG POSTS -
+        <% if user_signed_in? %>
+        <%= current_user.email %>
+        <% else %>
+        GUEST USER
+        <% end %>
+    </h1>
+    <% if user_signed_in? %>
+    <%= link_to "New post", new_post_path, class: "btn btn-primary blog-actions" %>
     <% end %>
-</ul>
+</div>
+<div class="blog-container">
+    <%= render partial: "post", collection: @posts %>
+</div>
