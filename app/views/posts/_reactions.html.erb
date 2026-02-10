@@ -1,0 +1,23 @@
+<div class="reactions-wrapper">
+    <div class="post-reactions">
+        ❤️ <%= post.reactions.count %>
+    </div>
+
+    <% if user_signed_in? %>
+    <% reaction = post.reactions.find_by(user: current_user) %>
+
+    <% if reaction %>
+    <%= link_to "❤️ Liked",
+            post_reaction_path(post, reaction),
+            class: "reaction-btn liked",
+            data: { turbo_method: :delete } %>
+    <% else %>
+    <%= link_to "🤍 Like",
+            post_reactions_path(post),
+            class: "reaction-btn",
+            data: { turbo_method: :post,
+            turbo_submits_with: "Liking..."
+        } %>
+    <% end %>
+    <% end %>
+</div>

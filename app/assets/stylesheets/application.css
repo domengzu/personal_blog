@@ -70,6 +70,7 @@
 }
 .post-footer {
     margin-top: 15px;
+    margin-bottom: 15px;
 }
 .btn {
     padding: 10px 15px;
@@ -218,6 +219,38 @@
 .post-actions .btn {
     width: 48%;
 }
+.reaction-count {
+  font-size: 14px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.reactions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
 
+.reaction-btn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  background-color: #f8f8f8;
+  transition: all 0.2s ease;
+}
 
+.reaction-btn:hover {
+  background-color: #eee;
+}
 
+.reaction-btn.liked {
+  background-color: #ffe6e6;
+  border-color: #ff4d4d;
+  color: #cc0000;
+  font-weight: bold;
+}

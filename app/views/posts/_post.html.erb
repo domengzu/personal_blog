@@ -15,4 +15,8 @@
         <%= link_to "Delete", post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
         <% end %>
     </div>
+    <div class="post-reactions">
+        ❤️ <%= post.reactions.count %>
+        <%= "reaction".pluralize(post.reactions.count) %>
+    </div>
 </article>
