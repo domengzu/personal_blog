@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  get "reactions/create"
+  get "reactions/destroy"
+  get "comments/create"
+  get "comments/destroy"
   devise_for :users
-  resources :posts
+  resources :posts do
+    resources :comments, only: [ :create, :destroy ]
+    resources :reactions, only: [ :create, :destroy ]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
