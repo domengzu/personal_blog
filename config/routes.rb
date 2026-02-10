@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get "comments/destroy"
   devise_for :users
   resources :posts do
+    collection do
+      get "my_post", to: "posts#my_post"
+    end
     resources :comments, only: [ :create, :destroy ]
     resources :reactions, only: [ :create, :destroy ]
   end

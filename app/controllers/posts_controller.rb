@@ -44,6 +44,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: "Post was successfully deleted.", status: :see_other
   end
 
+  def my_post
+    @posts = current_user.posts
+  end
+
   private
 
   def set_post

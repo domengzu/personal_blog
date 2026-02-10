@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+<h1>My Posts</h1>
+<% if @posts.any? %>
+<ul>
+    <% @posts.each do |post| %>
+    <li>
+        <%= link_to post.title, post_path(post) %>
+        <span class="post-date"><%= post.created_at.strftime("%B %d, %Y") %></span>
+    </li>
+    <% end %>
+</ul>
+<% else %>
+<p>You have not created any posts yet.</p>
+<% end %>
+<% end %>
