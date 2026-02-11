@@ -2,7 +2,7 @@
     <div class="post-header">
         <h1><%= @post.title %></h1>
         <p><%= @post.body %></p>
-        <p class="author">Author: <%= @post.user.email %></p>
+        <p class="author">Author: <%= @post.user.email %> | <%= @post.user.username %></p>
         <p class="post-date">
             <%= @post.user.created_at %>
         </p>
