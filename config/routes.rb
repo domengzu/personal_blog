@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get "reactions/create"
-  get "reactions/destroy"
-  get "comments/create"
-  get "comments/destroy"
   get "my_post", to: "posts#my_post"
+  resource :comments, only: [ :create, :destroy ]
+  resource :reactions, only: [ :create, :destroy ]
 
   devise_for :users
 

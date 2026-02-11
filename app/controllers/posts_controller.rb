@@ -16,11 +16,8 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      # flash.now[:notice] = "Blog post saved successfully."
-      # redirect_to @post
       redirect_to @post, notice: "Blog post saved successfully.", status: :see_other
     else
-      # flash.now[:alert] = "There was an error saving the blog post."
       render :new, status: :unprocessable_entity
     end
   end
@@ -34,7 +31,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: "Blog post updated successfully.", status: :see_other
     else
-      render :edit, status: :unprocessable_content
+      render :edit, status: :unprocessable_entity
     end
   end
 
