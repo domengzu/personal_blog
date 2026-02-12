@@ -70,3 +70,5 @@ gem "devise", "~> 5.0"
 gem "rails_db", "~> 2.5"
 
 gem "letter_opener", "~> 1.10"
+
+gem "tailwindcss-rails", "~> 4.4"
