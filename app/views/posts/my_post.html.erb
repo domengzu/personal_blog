@@ -1,15 +1,54 @@
 <% if user_signed_in? %>
-<h1>My Posts</h1>
-<% if @posts.any? %>
-<ul>
-    <% @posts.each do |post| %>
-    <li>
-        <%= link_to post.title, post_path(post) %>
-        <span class="post-date"><%= post.created_at.strftime("%B %d, %Y") %></span>
-    </li>
-    <% end %>
-</ul>
-<% else %>
-<p>You have not created any posts yet.</p>
-<% end %>
+<div class="min-h-screen bg-gray-100 py-12 px-4">
+
+    <!-- Page Title -->
+    <div class="max-w-3xl mx-auto mb-10 text-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-2">
+            My Posts
+        </h1>
+        <p class="text-gray-500 text-sm">
+            Manage and revisit your published content ✍️
+        </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+        <% if @posts.any? %>
+
+        <div class="space-y-4">
+            <% @posts.each do |post| %>
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 flex justify-between items-center group">
+
+                <!-- Post Info -->
+                <div>
+                    <%= link_to post.title, post_path(post),
+                    class: "text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition duration-200" %>
+
+                    <p class="text-sm text-gray-500 mt-1 italic">
+                        <%= post.created_at.strftime("%B %d, %Y") %>
+                    </p>
+                </div>
+
+                <!-- Quick Action -->
+                <%= link_to "View",
+                    post_path(post),
+                    class: "px-4 py-2 text-sm font-semibold border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-200 shadow-sm hover:shadow-md" %>
+            </div>
+            <% end %>
+        </div>
+
+        <% else %>
+
+        <!-- Empty State -->
+        <div class="bg-white border border-dashed border-gray-300 rounded-xl p-10 text-center shadow-sm">
+            <p class="text-gray-600 mb-4">
+                You haven’t created any posts yet.
+            </p>
+            <%= link_to "Create Your First Post",
+                new_post_path,
+                class: "inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
 <% end %>

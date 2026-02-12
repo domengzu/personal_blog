@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 
   def post_params
     # params.expect(post: [ :title, :body ]) # this is a more concise way to write the strong parameters, but it is not yet widely supported in all versions of Rails
-    params.require(:post).permit(:title, :body, :user_id) # currently the best practice
+    params.require(:post).permit(:title, :body, :user_id, :image) # currently the best practice
   end
 
   def authorize_owner!

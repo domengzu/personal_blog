@@ -8,3 +8,38 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  animation: typing 5s steps(40, end) infinite alternate, blink-caret 0.7s step-end infinite;
+}
+@keyframes typing {
+  0% { width: 0 }
+  50% { width: 50% }
+  100% { width: 0 }
+}
+@keyframes blink-caret {
+  0%, 50%, 100% { border-color: transparent }
+  25%, 75% { border-color: orange; }
+}
+

@@ -1,23 +1,32 @@
-<div class="reactions-wrapper">
-    <div class="post-reactions">
-        ❤️ <%= post.reactions.count %>
+<div class="flex items-center justify-center gap-4 mt-6">
+
+    <!-- Reaction Counter -->
+    <div class="flex items-center gap-2 px-4 py-2 bg-pink-50 border border-pink-200 rounded-full shadow-sm">
+        <span class="text-lg">❤️</span>
+        <span class="font-semibold text-pink-600">
+            <%= post.reactions.count %>
+        </span>
     </div>
 
     <% if user_signed_in? %>
     <% reaction = post.reactions.find_by(user: current_user) %>
 
     <% if reaction %>
-    <%= link_to "❤️ Liked",
-            post_reaction_path(post, reaction),
-            class: "reaction-btn liked",
-            data: { turbo_method: :delete } %>
+    <!-- Unlike Button -->
+    <%= link_to post_reaction_path(post, reaction),
+          class: "px-4 py-2 rounded-full bg-pink-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-pink-700 transition-all duration-200",
+          data: { turbo_method: :delete } do %>
+    ❤️ Liked
+    <% end %>
+
     <% else %>
-    <%= link_to "🤍 Like",
-            post_reactions_path(post),
-            class: "reaction-btn",
-            data: { turbo_method: :post,
-            turbo_submits_with: "Liking..."
-        } %>
+    <!-- Like Button -->
+    <%= link_to post_reactions_path(post),
+          class: "px-4 py-2 rounded-full border border-pink-400 text-pink-500 font-semibold hover:bg-pink-500 hover:text-white hover:scale-105 transition-all duration-200 shadow-sm",
+          data: { turbo_method: :post, turbo_submits_with: "Liking..." } do %>
+    🤍 Like
+    <% end %>
+
     <% end %>
     <% end %>
 </div>

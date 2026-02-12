@@ -1,0 +1,12 @@
+<% flash.each do |type, message| %>
+<% bg_color = type == "notice" ? "bg-green-500" : "bg-red-500" %>
+
+<div data-controller="toast" class="fixed top-5 right-5 z-50 <%= bg_color %> text-white px-6 py-3 rounded-lg shadow-lg flex items-center space-x-3 animate-slide-in">
+    <span>
+        <%= message %>
+    </span>
+    <button data-action="click->toast#close" class="text-white font-bold">
+        &times;
+    </button>
+</div>
+<% end %>
