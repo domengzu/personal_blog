@@ -14,8 +14,10 @@
         <%= form_for(resource, as: resource_name,
         url: registration_path(resource_name),
         html: { method: :put, class: "space-y-6" }) do |f| %>
-
-        <%= render "devise/shared/error_messages", resource: resource %>
+        <% if resource.errors.any? %>
+        <%= render "shared/toaster" %>
+        <%#= render "devise/shared/error_messages", resource: resource %>
+        <% end %>
 
         <!-- Username -->
         <div>

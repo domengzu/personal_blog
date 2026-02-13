@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resource :comments, only: [ :create, :destroy ]
   resource :reactions, only: [ :create, :destroy ]
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations"
+  }
 
   resources :posts do
     resources :comments, only: [ :create, :destroy ]
@@ -21,11 +24,4 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "posts#index"
-
-  # devise_scope :user do
-  #   # authenticated :user do
-  #   #   root to: "dashboard#index"
-  #   # end
-  #   root to: "devise/sessions#new"
-  # end
 end

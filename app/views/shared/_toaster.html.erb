@@ -1,3 +1,6 @@
+<% if defined?(resource) && resource&.errors&.any? %>
+<% flash.now[:alert] = resource.errors.full_messages.to_sentence %>
+<% end %>
 <% flash.each do |type, message| %>
 <% bg_color = type == "notice" ? "bg-green-500" : "bg-red-500" %>
 
@@ -5,7 +8,7 @@
     <span>
         <%= message %>
     </span>
-    <button data-action="click->toast#close" class="text-white font-bold">
+    <button data-action="click->toast#close" class="text-white font-bold cursor-pointer">
         &times;
     </button>
 </div>
