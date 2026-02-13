@@ -6,9 +6,11 @@ export default class extends Controller {
       this.close()
     }, 4000)
   }
+  
   close () {
     this.element.remove()
   }
+  
   disconnect() {
     clearTimeout(this.timeout)
   }
