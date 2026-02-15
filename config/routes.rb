@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/index"
   get "my_post", to: "posts#my_post"
   resource :comments, only: [ :create, :destroy ]
   resource :reactions, only: [ :create, :destroy ]
@@ -23,5 +24,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "posts#index"
+  root "home#index"
 end
