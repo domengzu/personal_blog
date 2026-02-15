@@ -9,5 +9,16 @@
     <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome Back, <%= current_user.username %>!</h1>
     <p class="text-lg text-gray-600 mb-8">Continue exploring the blog posts.</p>
     <%= link_to "View All Posts", posts_path, class: "px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200 shadow-md" %>
+    <p class="text-sm text-gray-500 mt-4">
+        <script>
+            const currentDate = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            document.write("Today's date: " + currentDate.toLocaleDateString('en-US', options));
+        </script>
+    </p>
 </div>
 <% end %>
