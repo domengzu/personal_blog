@@ -15,7 +15,7 @@
     <!-- Post Image -->
     <% if @post.image.attached? %>
     <div class="mb-8">
-        <%= image_tag @post.image.variant(resize_to_limit: [1200, 800]), class: "w-full h-75 rounded-lg shadow-md object-cover" %>
+        <%= image_tag @post.image.variant(resize_to_limit: [600, 400]), class: "w-full h-75 rounded-lg shadow-md object-cover" %>
     </div>
     <% end %>
 

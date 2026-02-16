@@ -10,15 +10,9 @@
     <p class="text-lg text-gray-600 mb-8">Continue exploring the blog posts.</p>
     <%= link_to "View All Posts", posts_path, class: "px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200 shadow-md" %>
     <p class="text-sm text-gray-500 mt-4">
-        <script>
-            const currentDate = new Date();
-            const options = {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            };
-            document.write("Today's date: " + currentDate.toLocaleDateString('en-US', options));
-        </script>
+        <% if admin? %>
+        You can also <%= link_to "create a new post", new_post_path, class: "text-blue-600 hover:text-blue-800" %>
+        <% end %>
     </p>
 </div>
 <% end %>
