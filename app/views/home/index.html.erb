@@ -1,17 +1,17 @@
 <% if !user_signed_in? %>
 <div class="text-center py-12">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to My Personal Blog</h1>
-    <p class="text-lg text-gray-600 mb-8">Sign in to start reading and writing blogs.</p>
-    <%= link_to "Sign In" , new_user_session_path, class: "px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 shadow-md" %>
+    <h1 class="text-4xl font-bold mb-4">Welcome to My Personal Blog</h1>
+    <p class="text-lg mb-8">Sign in to start reading and writing blogs.</p>
+    <%= link_to "Sign In" , new_user_session_path, class: "btn btn-primary" %>
 </div>
 <% else %>
 <div class="text-center py-12">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome Back, <%= current_user.username %>!</h1>
-    <p class="text-lg text-gray-600 mb-8">Continue exploring the blog posts.</p>
-    <%= link_to "View All Posts", posts_path, class: "px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200 shadow-md" %>
-    <p class="text-sm text-gray-500 mt-4">
+    <h1 class="text-4xl font-bold mb-4">Welcome Back, <%= current_user.username %>!</h1>
+    <p class="text-lg mb-8">Continue exploring the blog posts.</p>
+    <%= link_to "View All Posts", posts_path, class: "btn btn-primary" %>
+    <p class="text-sm mt-4">
         <% if admin? %>
-        You can also <%= link_to "create a new post", new_post_path, class: "text-blue-600 hover:text-blue-800" %>
+        You can also <%= link_to "create a new post", new_post_path, class: "btn btn-sm" %>
         <% end %>
     </p>
 </div>
