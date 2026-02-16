@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get "home/index"
   get "my_post", to: "posts#my_post"
-  resource :comments, only: [ :create, :destroy ]
-  resource :reactions, only: [ :create, :destroy ]
+  # resource :comments, only: [ :create, :destroy ]
+  # resource :reactions, only: [ :create, :destroy ]
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
 
   resources :posts do
-    resources :comments, only: [ :create, :destroy ]
+    resources :comments
     resources :reactions, only: [ :create, :destroy ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
