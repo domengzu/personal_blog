@@ -1,0 +1,20 @@
+<div class="dropdown dropdown-end" data-controller="theme-persist" data-theme-persist-key-value="theme">
+    <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+        Theme
+    </div>
+
+    <div tabindex="0" class="dropdown-content z-[999] mt-2 p-2 shadow bg-base-100 rounded-box w-64">
+        <ul class="menu menu-sm max-h-72 overflow-auto">
+            <% themes = %w[light dark cupcake bumblebee emerald corporate synthwave retro cyberpunk valentine halloween garden forest aqua lofi pastel fantasy wireframe black luxury dracula cmyk autumn business acid lemonade night coffee winter] %>
+
+            <% themes.each do |t| %>
+            <li>
+                <label class="label cursor-pointer justify-between">
+                    <span class="capitalize"><%= t %></span>
+                    <input type="radio" name="theme-dropdown" class="theme-controller radio" value="<%= t %>" data-action="click->theme-persist#save" />
+                </label>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+</div>
