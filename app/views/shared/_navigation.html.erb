@@ -1,10 +1,10 @@
 <div class="w-full flex flex-col bg-base-100 md:flex-row md:justify-between md:items-center shadow-sm p-5 px-16 absolute top-0 left-0 z-10 sticky">
     <div class="flex items-center space-x-6 mb-4 md:mb-0">
-        <%= link_to "Home", root_path, class: "link link-neutral link-hover hover:text-amber-700 transition text-sm font-semibold" %>
-        <%= link_to "Blogs", posts_path, class: "link link-neutral link-hover hover:text-amber-700 transition text-sm font-semibold" %>
+        <%= link_to "Home", root_path, class: "link link-hover hover:text-amber-700 transition text-sm font-semibold" %>
+        <%= link_to "Blogs", posts_path, class: "link link-hover hover:text-amber-700 transition text-sm font-semibold" %>
 
         <% if admin? %>
-        <%= link_to "My blogs", my_post_path, class: "link link-neutral link-hover hover:text-amber-700 transition text-sm font-semibold" %>
+        <%= link_to "My blogs", my_post_path, class: "link link-hover hover:text-amber-700 transition text-sm font-semibold" %>
         <% end %>
     </div>
     <div class="flex items-center space-x-4">
@@ -21,7 +21,7 @@
                         <%= link_to "User settings", edit_user_registration_path %>
                     </div>
                 </li>
-                <li class="border-t border-gray-200 mt-2">
+                <li class="border-t border-gray-200 mt-2 pt-2">
                     <div>
                         <%= icon "arrow-left-start-on-rectangle", library: "heroicons", class: "size-4 inline text-red-500 mr-1" %>
                         <%= link_to "Log out", 

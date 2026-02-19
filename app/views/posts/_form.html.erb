@@ -9,7 +9,7 @@
 
 <div class="mb-4">
     <%= f.label :body, class: "block text-sm font-medium mb-1 flex items-center gap-1" do %>
-    <%= icon "document-text", library: "heroicons", variant: "solid", class: "size-4 inline" %>
+    <%= icon "chat-bubble-oval-left-ellipsis", library: "heroicons", variant: "solid", class: "size-4 inline" %>
     Body
     <% end %>
     <%= f.text_area :body, placeholder: "Write your post here...", class: "w-full h-50 px-4 py-2 border rounded-lg border-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" %>
@@ -22,10 +22,14 @@
     <%= f.file_field :image, class: "w-full px-4 py-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" %>
 </div>
 <div class="flex gap-3 mt-4">
-    <%= f.submit "Submit", 
-    class: "btn btn-success btn-sm w-[20%]" %>
+    <%= f.button type: "submit", class: "btn btn-success btn-sm w-[20%]" do %>
+    <%= icon "paper-airplane", library: "heroicons", class: "size-4 inline" %>
+    Submit
+    <% end %>
 
-    <%= link_to "Back to posts", posts_path,
-    class: "btn btn-neutral btn-sm w-[20%]" %>
+    <%= link_to posts_path, class: "btn btn-neutral btn-sm" do %>
+    <%= icon "arrow-left", library: "heroicons", class: "size-4 inline" %>
+    Back to posts
+    <% end %>
 </div>
 <% end %>
