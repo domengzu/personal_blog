@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: "Blog post saved successfully.", status: :see_other
     else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: "Blog post updated successfully.", status: :see_other
     else
+      flash.now[:alert] = @post.errors.full_messages.to_sentence
       render :edit, status: :unprocessable_entity
     end
   end

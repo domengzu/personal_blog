@@ -7,13 +7,15 @@
         </div>
         <div>
             <% if admin? %>
-            <%= link_to "New post", new_post_path, 
-            class: "btn btn-primary" %>
+            <%= link_to new_post_path, class: "btn btn-primary flex items-center gap-2" do %>
+            <%= icon "plus", library: "heroicons", class: "size-4 inline" %>
+            New post
+            <% end %>
             <% end %>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <%= render partial: "post", collection: @posts %>
     </div>
 </div>

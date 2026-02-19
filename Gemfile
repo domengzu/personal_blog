@@ -74,3 +74,5 @@ gem "letter_opener", "~> 1.10"
 gem "tailwindcss-rails", "~> 4.4"
 
 gem "friendly_id", "~> 5.5.0"
+
+gem "rails_icons", "~> 1.6"

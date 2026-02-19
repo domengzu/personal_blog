@@ -8,7 +8,10 @@
 <div class="text-center py-12">
     <h1 class="text-4xl font-bold mb-4">Welcome Back, <%= current_user.username %>!</h1>
     <p class="text-lg mb-8">Continue exploring the blog posts.</p>
-    <%= link_to "View All Posts", posts_path, class: "btn btn-primary" %>
+    <%= link_to posts_path, class: "btn btn-primary items-center gap-2" do %>
+    <%= icon "cursor-arrow-rays", library: "heroicons", class: "size-6 inline" %>
+    View All Posts
+    <% end %>
     <p class="text-sm mt-4">
         <% if admin? %>
         You can also <%= link_to "create a new post", new_post_path, class: "btn btn-sm" %>

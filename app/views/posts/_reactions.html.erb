@@ -1,8 +1,10 @@
-<div class="flex items-center justify-center gap-4 mt-6">
+<div class="flex gap-2">
 
     <!-- Reaction Counter -->
     <div class="flex items-center gap-2 px-4 py-2 bg-pink-50 border border-pink-200 rounded-full shadow-sm">
-        <span class="text-lg">❤️</span>
+        <span class="text-lg">
+            <%= icon "heart", library: "heroicons", variant: "solid", class: "size-6 text-red-700" %>
+        </span>
         <span class="font-semibold text-pink-600">
             <%= post.reactions.count %>
         </span>
@@ -13,20 +15,18 @@
 
     <% if reaction %>
     <!-- Unlike Button -->
-    <%= link_to post_reaction_path(post, reaction),
-          class: "px-4 py-2 rounded-full bg-pink-600 text-white font-semibold shadow-md hover:scale-105 hover:bg-pink-700 transition-all duration-200",
-          data: { turbo_method: :delete } do %>
-    ❤️ Liked
+    <%= link_to post_reaction_path(post, reaction), class: "btn btn-accent rounded-full", data: { turbo_method: :delete } do %>
+    <%= icon "heart", library: "heroicons", variant: "solid", class: "size-6 text-red-700" %>
+    Liked
     <% end %>
 
     <% else %>
     <!-- Like Button -->
-    <%= link_to post_reactions_path(post),
-          class: "px-4 py-2 rounded-full border border-pink-400 text-pink-500 font-semibold hover:bg-pink-500 hover:text-white hover:scale-105 transition-all duration-200 shadow-sm",
-          data: { turbo_method: :post, turbo_submits_with: "Liking..." } do %>
-    🤍 Like
-    <% end %>
-
+    <%= link_to post_reactions_path(post), class: "btn btn-outline btn-accent rounded-full", data: { turbo_method: :post, turbo_submits_with: "Liking..." } do %>
+    <%= icon "heart", library: "heroicons", class: "size-6" %>
+    Like
     <% end %>
     <% end %>
+    <% end %>
+</div>
 </div>

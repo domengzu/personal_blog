@@ -24,17 +24,20 @@
         </div>
     </div>
     <div class="card-actions justify-end mb-4 px-6">
-        <%= link_to "Read more", post_path(post), 
-        class: "btn btn-neutral btn-outline btn-sm hover:bg-neutral hover:text-white transition-colors duration-300"
-        %>
+        <%= link_to post_path(post), class: "btn btn-outline btn-sm hover:bg-neutral hover:text-white transition-colors duration-300" do %>
+        <%= icon "cursor-arrow-rays", library: "heroicons", class: "size-4 inline" %>
+        Read more
+        <% end %>
         <% if admin? %>
-        <%= link_to "Edit", edit_post_path(post), 
-        class: "btn btn-info btn-outline btn-sm hover:bg-info hover:text-white transition-colors duration-300 w-[25%]"
-        %>
-        <%= link_to "Delete", post_path(post), 
-        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, 
-        class: "btn btn-error btn-outline btn-sm w-[25%] hover:bg-error hover:text-white transition-colors duration-300" 
-        %>
+        <%= link_to edit_post_path(post), class: "btn btn-info btn-outline btn-sm hover:bg-info hover:text-white transition-colors duration-300 w-[25%]" do %>
+        <%= icon "pencil-square", library: "heroicons", class: "size-4 inline" %>
+        Edit
+        <% end %>
+        <%= link_to post_path(post),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-error btn-outline btn-sm hover:bg-error hover:text-white transition-colors duration-300" do %>
+        <%= icon "trash", library: "heroicons", class: "size-4 inline" %>
+        Delete
+        <% end %>
         <% end %>
     </div>
 </div>
