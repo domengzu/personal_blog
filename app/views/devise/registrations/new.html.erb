@@ -24,20 +24,34 @@
         %>
         </div>
         <!-- Password -->
-        <div>
-            <%= f.label :password, class: "block text-sm font-medium mb-1" %>
-            <%= f.password_field :password,
-              autocomplete: "current-password",
-              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-        %>
+        <div data-controller="password-toggle">
+            <%= f.label :password, class: "block text-sm font-medium mb-1 flex items-center" %>
+            <div class="relative">
+                <%= f.password_field :password, data: { password_toggle_target: "input" }, autocomplete: "current-password", class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" %>
+                <button type="button" data-action="click->password-toggle#toggle" class="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                    <span data-password-toggle-target="eye">
+                        <%= icon "eye", library: "heroicons", class: "size-5 inline" %>
+                    </span>
+                    <span data-password-toggle-target="eyeSlash" class="hidden">
+                        <%= icon "eye-slash", library: "heroicons", class: "size-5 inline" %>
+                    </span>
+                </button>
+            </div>
         </div>
         <!-- Confirm password -->
-        <div>
+        <div data-controller="password-toggle">
             <%= f.label :password_confirmation, class: "block text-sm font-medium mb-1" %>
-            <%= f.password_field :password_confirmation,
-              autocomplete: "current-password",
-              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-        %>
+            <div class="relative">
+                <%= f.password_field :password_confirmation, data: { password_toggle_target: "input" }, autocomplete: "current-password", class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" %>
+                <button type="button" data-action="click->password-toggle#toggle" class="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700">
+                    <span data-password-toggle-target="eye">
+                        <%= icon "eye", library: "heroicons", class: "size-5 inline" %>
+                    </span>
+                    <span data-password-toggle-target="eyeSlash" class="hidden">
+                        <%= icon "eye-slash", library: "heroicons", class: "size-5 inline" %>
+                    </span>
+                </button>
+            </div>
         </div>
         <!-- Submit Button -->
         <div>
